@@ -4,24 +4,23 @@
 #' 
 #' Represents generalized ellipsoids with the "(U,D)" representation, allowing
 #' both degenerate and unbounded ellipsoids, together with methods for linear
+#' and duality transformations, and for plotting.
+#' This permits exploration of a variety to statistical issues that can be visualized using ellipsoids
+#' as discussed by Friendly, Fox & Monette (2013), "Elliptical Insights: Understanding Statistical Methods 
+#  Through Elliptical Geometry" <doi:10.1214/12-STS402>.
 #' and duality transformations, and for plotting. 
 #' The ideas are described in Friendly, Monette & Fox (2013) \doi{10.1214/12-STS402}.
 #' 
-#' \tabular{ll}{ 
-#' Package:  \tab gellipsoid\cr Type: \tab Package\cr 
-#' Version:  \tab 0.7.2\cr 
-#' Date:     \tab 2022-04-19\cr 
-#' License:  \tab GPL (>=2)\cr 
-#' LazyLoad: \tab yes\cr 
-#' }
 #' 
-#' (U, D) representation of generalized ellipsoids in \eqn{R^d}.
-#' 
-#' (U is square orthogonal and D diagonal with extended non-negative real
-#' numbers, i.e. 0, Inf or a positive real).
+#' It uses the (U, D) representation of generalized ellipsoids in \eqn{R^d},
+#' where
+#' \eqn{U} is square orthogonal and \eqn{D} is diagonal with extended non-negative real
+#' numbers, i.e. 0, Inf or a positive real). These are roughly analogous to the
+#' corresponding terms in the singular-value decomposition of a matrix,
+#' \eqn{X = U D V'}.
 #' 
 #' The resulting class of ellipsoids includes degenerate ellipsoids that are
-#' flat and/or unbounded. Thus ellipsoids are naturally defined to include
+#' flat and/or unbounded. Thus ellipsoids are naturally extended to include
 #' lines, hyperplanes, points, cylinders, etc.
 #' 
 #' The class is closed under linear and affine transformations (including those
@@ -58,7 +57,7 @@
 #' of Inf's is equal to the number of columns of U_1.
 #' 
 #' \item From a transformation of the unit sphere given by A(Unit sphere) where
-#' \eqn{A = UDV'}, i.e. the SVD.
+#' \eqn{A = U D V'}, i.e. the SVD.
 #' 
 #' \item (Generalization of 4): (A, d) where A is any matrix and d is a vector of
 #' factors corresponding to columns of A. These factors can be 0, positive or
@@ -73,12 +72,15 @@
 #' @author Georges Monette and Michael Friendly
 #' 
 #' Maintainer: Michael Friendly <friendly@@yorku.ca>
-#' @seealso None yet %~~ \code{\link[<pkg>:<pkg>-package]{<pkg>}} ~~
+#' @seealso \code{\link{dual}}, \code{\link{ellipsoid}}, \code{\link{gell}},  \code{\link{UD}}
 #' 
 #' @import rgl
-#' @references Friendly, M., Monette, G. and Fox, J. (2013). Elliptical
+#' @references 
+#' Friendly, M., Monette, G. and Fox, J. (2013). Elliptical
 #' Insights: Understanding Statistical Methods through Elliptical Geometry.
-#' \emph{Statistical Science}, \bold{28}(1), 1-39.
+#' \emph{Statistical Science}, \bold{28}(1), 1-39. 
+#' Online: \url{https://www.datavis.ca/papers/ellipses-STS402.pdf},
+#' DOI: \doi{10.1214/12-STS402}
 #' @keywords package
 #' @examples
 #' 
